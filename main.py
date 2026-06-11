@@ -122,7 +122,7 @@ def query_loop(retriever, groq_client):
 
 if __name__ == "__main__":
 
-    PDF_PATH = "sample.pdf"
+    PDF_PATH = "medical.pdf"
 
     if not os.path.exists(PDF_PATH):
         print(f"ERROR: '{PDF_PATH}' not found.")
