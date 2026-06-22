@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: #FAFAF8;
+  color: #1B2733;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #1F4B4F;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Citation pull-tab: sits like a sticky note tab attached to an answer */
+.citation-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #F4C94B;
+  color: #1B2733;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px 10px 10px 3px;
+  cursor: pointer;
+  border: none;
+  transform: translateX(0);
+  transition: transform 0.15s ease;
+}
+
+.citation-tab:hover {
+  transform: translateX(2px);
+}
+
+.citation-panel {
+  border-left: 3px solid #F4C94B;
+  background: #FFFDF5;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  color: #3A3F46;
+}
