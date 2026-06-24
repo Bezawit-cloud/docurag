@@ -2,8 +2,8 @@
 
 > **Production-ready document intelligence infrastructure.** Upload any document. Get a citation-backed AI chatbot grounded in your own content — deployed in seconds, isolated per tenant, with responses anchored to retrieved source material.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Hugging%20Face%20Spaces-orange?logo=huggingface)](https://your-hf-space-url)
-[![Frontend](https://img.shields.io/badge/Frontend-Vercel-black?logo=vercel)](https://your-vercel-url)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Hugging%20Face%20Spaces-orange?logo=huggingface)](https://bezawit-ai-docurag.hf.space)
+[![Frontend](https://img.shields.io/badge/Frontend-Vercel-black?logo=vercel)](https://docurag-one.vercel.app/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.11-green?logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-teal?logo=fastapi)](https://fastapi.tiangolo.com)
@@ -47,7 +47,7 @@ flowchart TD
     end
 
     subgraph API["Application Layer"]
-        B["FastAPI Backend\n(Hugging Face Spaces / Render)"]
+        B["FastAPI Backend\n(Hugging Face Spaces )"]
         C["Background Worker\nDocument Ingestion Pipeline"]
     end
 
@@ -59,7 +59,7 @@ flowchart TD
 
     subgraph AI["AI Layer"]
         G["HuggingFace Embeddings\nall-MiniLM-L6-v2 (CPU)"]
-        H["Groq API\nLLaMA 3 70B Inference"]
+        H["Groq llama-3.1-8b-instant"]
     end
 
     A -->|"REST / JWT Bearer"| B
@@ -180,9 +180,9 @@ All protected endpoints enforce JWT validation via a FastAPI `Depends` injection
 | LLM Inference | Groq LLaMA 3 (8B / 70B) | Sub-second inference latency; OpenAI-compatible API |
 | Database & Auth | Supabase (PostgreSQL + GoTrue) | Row-Level Security, Auth, Storage — unified free-tier platform |
 | Frontend | Gradio → React (Vercel) | Rapid prototype to production-grade UI path |
-| Deployment — API | Hugging Face Spaces / Render | Zero-cost hosting with persistent subdomain |
+| Deployment — API | Hugging Face Spaces | Zero-cost hosting with persistent subdomain |
 | Deployment — UI | Vercel | Global CDN, instant deploys, custom domain |
-| Payments | Lemon Squeezy | No monthly SaaS fee; 5% + $0.50 per transaction |
+
 
 ---
 
@@ -214,17 +214,6 @@ Production Traffic
             └──────────────────────┘
 ```
 
----
-
-## Free Tier Usage Limits
-
-| Plan | Documents | Messages/Month | Chatbots |
-|------|-----------|----------------|----------|
-| Free | 3 | 50 | Unlimited |
-| Starter | 25 | 500 | Unlimited |
-| Pro | Unlimited | Unlimited | Unlimited |
-
-Limits are enforced at the API layer and backed by atomic counters in `user_profiles`. Upgrade prompts link directly to Lemon Squeezy checkout.
 
 ---
 
@@ -267,11 +256,9 @@ UPGRADE_URL=https://your-lemon-squeezy-checkout-url
 
 | Environment | URL |
 |-------------|-----|
-| Frontend (Vercel) | [your-vercel-url.vercel.app](https://your-vercel-url.vercel.app) |
+| Frontend (Vercel) | [https://docurag-one.vercel.app/](https://docurag-one.vercel.app/) |
 | API Backend (Hugging Face) | [huggingface.co/spaces/Bezawit/DocuRAG](https://huggingface.co/spaces/Bezawit/DocuRAG) |
 | API Docs (Swagger UI) | `{backend-url}/docs` |
-
-> **Note on cold starts:** The free-tier backend spins down after 15 minutes of inactivity. The first request after idle may take 20–30 seconds to respond while the instance restarts. Subsequent requests operate at normal latency.
 
 ---
 
@@ -307,9 +294,8 @@ docurag/
 
 ## Author
 
-**Bezawit Assefa Belete** — Senior AI Architect specializing in RAG systems, multi-tenant SaaS infrastructure, and production LLM deployment.
+**Bezawit Assefa Belete** — AI Architect specializing in RAG systems, multi-tenant SaaS infrastructure, and production LLM deployment.
 
-Available for enterprise RAG implementations, document intelligence platforms, and AI chatbot integrations on [Upwork](https://upwork.com/your-profile-link).
 
 ---
 
